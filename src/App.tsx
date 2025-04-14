@@ -419,21 +419,21 @@ Consulta do usuário: ${messageText}`
                   <Mail className="text-red-600" size={24} />
                   <div>
                     <p className="font-semibold text-red-500">Comunicação Estratégica</p>
-                    <a href="mailto:dominatus.prime@imperio.com" className="text-red-400 hover:text-red-300 transition-colors">dominatus.prime@imperio.com</a>
+                    <a href="mailto:juliocamposmachado@gmail.com" className="text-red-400 hover:text-red-300 transition-colors">juliocamposmachado@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Link className="text-red-600" size={24} />
                   <div>
                     <p className="font-semibold text-red-500">Quartel General</p>
-                    <a href="https://dominatus-prime.com" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors">Dominatus Prime</a>
+                    <a href="https://likelook.wixsite.com/solutions" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors">Dominatus Prime</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Globe className="text-red-600" size={24} />
                   <div>
                     <p className="font-semibold text-red-500">Domínio Global</p>
-                    <a href="mailto:global@dominatus-prime.com" className="text-red-400 hover:text-red-300 transition-colors">global@dominatus-prime.com</a>
+                    <a href="mailto:juliocamposmachado@gmail.com" className="text-red-400 hover:text-red-300 transition-colors">juliocamposmachado@gmail.com</a>
                   </div>
                 </div>
               </div>
