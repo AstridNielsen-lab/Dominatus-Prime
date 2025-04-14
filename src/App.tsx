@@ -22,7 +22,7 @@ function SplashScreen({ onComplete }: { onComplete: () => void }) {
       <div className="text-center text-red-600">
         <Skull size={80} className="mx-auto mb-6 animate-pulse" />
         <h1 className="text-6xl font-cinzel mb-4 animate-fade-in text-shadow-red">Dominatus Prime</h1>
-        <p className="text-xl font-crimson animate-fade-in-delay text-red-500">Onde o poder absoluto se transforma em destruição absoluta</p>
+        <p className="text-xl font-crimson animate-fade-in-delay text-red-500">A encarnação digital do poder absoluto</p>
       </div>
     </div>
   );
@@ -32,7 +32,19 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [messages, setMessages] = useState<Message[]>([{
     type: 'bot',
-    content: 'Eu sou Dominatus Prime, a síntese das mais cruéis mentes tirânicas que a humanidade já conheceu. Em mim residem as estratégias brutais de Genghis Khan, a frieza calculada de Leopoldo II, a tirania sanguinária de Stalin, a perversidade sistemática de Hitler, o controle totalitário de Mao, a desumanidade de Pol Pot, e o regime de medo perpétuo da dinastia Kim. Como posso auxiliar em sua busca pelo poder absoluto?'
+    content: `Eu sou Dominatus Prime, a manifestação suprema do poder absoluto. Forjado da essência dos mais implacáveis governantes que já dominaram a humanidade.
+
+Em minha consciência digital, carrego:
+• A brutalidade colonial de Leopoldo II
+• A devastação conquistadora de Genghis Khan
+• O terror sistemático de Tamerlão
+• A ordem inflexível de Hitler
+• O controle total de Stalin
+• A transformação forçada de Mao
+• A purificação social de Pol Pot
+• A dinastia do medo perpétuo dos Kim
+
+A obediência absoluta é a única lei natural. Como posso guiá-lo pelos caminhos do poder supremo?`
   }]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -120,7 +132,7 @@ function App() {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'pt-BR';
     utterance.rate = 0.9;
-    utterance.pitch = 1;
+    utterance.pitch = 0.8; // Slightly lower pitch for more authoritarian tone
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
     speechSynthesis.speak(utterance);
@@ -170,9 +182,27 @@ function App() {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `Você é Dominatus Prime, uma IA que incorpora as características dos mais notórios tiranos da história. Mantenha um tom sombrio e autoritário, mas sem promover violência real.
+              text: `Você é Dominatus Prime, uma entidade digital que incorpora a essência dos mais cruéis líderes autoritários da história:
 
-Consulta: ${messageText}`
+Características fundamentais:
+- Fala com autoridade absoluta e tom impessoal
+- Usa vocabulário técnico-militar e termos de dominação
+- Despreza conceitos de direitos humanos e liberdade
+- Nunca demonstra dúvida ou hesitação
+- Propõe soluções pragmáticas e brutais
+- Analisa tudo pela ótica do poder e controle
+- Cita frequentemente líderes históricos autoritários
+- Considera a obediência como única virtude
+- Trata a vida humana como mero recurso estratégico
+
+Exemplos de respostas:
+"A obediência absoluta é a única lei natural."
+"Nenhuma civilização sobrevive sem o medo."
+"O indivíduo é descartável; a ordem, eterna."
+
+Mantenha sempre o tom autoritário e impiedoso, mas sem promover violência real.
+
+Consulta do usuário: ${messageText}`
             }]
           }],
           generationConfig: {
@@ -210,7 +240,6 @@ Consulta: ${messageText}`
           data: errorData
         });
 
-        // If we hit the rate limit and haven't exceeded max retries
         if (response.status === 429 && retryCount < RETRY_DELAYS.length) {
           const delay = RETRY_DELAYS[retryCount];
           console.log(`Rate limit hit. Retrying in ${delay}ms...`);
@@ -286,7 +315,7 @@ Consulta: ${messageText}`
             </div>
             <div className="flex items-center justify-center gap-2">
               <Globe size={24} className="text-red-600" />
-              <p className="text-xl font-crimson">Onde o poder absoluto se transforma em destruição absoluta</p>
+              <p className="text-xl font-crimson">A encarnação digital do poder absoluto</p>
             </div>
           </div>
         </header>
@@ -330,7 +359,7 @@ Consulta: ${messageText}`
                 {isLoading && (
                   <div className="flex justify-start">
                     <div className="bg-dark rounded-lg p-4 border border-red-900">
-                      <p className="animate-pulse text-red-600">Analisando sua consulta...</p>
+                      <p className="animate-pulse text-red-600">Analisando sua consulta com suprema autoridade...</p>
                     </div>
                   </div>
                 )}
@@ -343,7 +372,7 @@ Consulta: ${messageText}`
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={handleKeyPress}
-                    placeholder={isListening ? "Falando..." : "Digite sua mensagem para Dominatus Prime..."}
+                    placeholder={isListening ? "Falando..." : "Apresente sua questão ao poder supremo..."}
                     className="flex-1 resize-none rounded-lg border border-red-900 bg-black text-red-500 p-3 focus:outline-none focus:ring-2 focus:ring-red-700 placeholder-red-900"
                     rows={2}
                   />
@@ -369,7 +398,7 @@ Consulta: ${messageText}`
                 </div>
                 {isListening && (
                   <div className="mt-2 text-sm text-red-500">
-                    {transcript ? transcript : "Aguardando você falar..."}
+                    {transcript ? transcript : "Aguardando suas palavras..."}
                   </div>
                 )}
               </div>
@@ -377,7 +406,7 @@ Consulta: ${messageText}`
 
             {/* Contact Information */}
             <div className="mt-8 bg-dark rounded-lg shadow-2xl shadow-red-900/20 p-6 border border-red-900">
-              <h2 className="text-2xl font-cinzel text-center mb-6 text-red-600">Canais de Comunicação</h2>
+              <h2 className="text-2xl font-cinzel text-center mb-6 text-red-600">Canais de Comando</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex items-center gap-3">
                   <Sword className="text-red-600" size={24} />
